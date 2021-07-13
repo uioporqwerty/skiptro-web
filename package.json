@@ -1,0 +1,29 @@
+{
+  "name": "skiptro-web-ext",
+  "version": "1.0.0",
+  "description": "Easily skip tv show intros",
+  "main": "content_script.js",
+  "scripts": {
+    "build:firefox": "webextension-toolbox build firefox",
+    "build:edge": "webextension-toolbox build edge",
+    "build:chrome": "webextension-toolbox build chrome",
+    "build:opera": "webextension-toolbox build opera",
+    "start:firefox": "webextension-toolbox dev firefox",
+    "start:edge": "webextension-toolbox dev edge",
+    "start:chrome": "webextension-toolbox dev chrome",
+    "start:opera": "webextension-toolbox dev opera"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uioporqwerty/skiptro-web-ext.git"
+  },
+  "author": "Nitish Sachar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/uioporqwerty/skiptro-web-ext/issues"
+  },
+  "homepage": "https://github.com/uioporqwerty/skiptro-web-ext#readme",
+  "devDependencies": {
+    "webextension-toolbox": "^4.0.3"
+  }
+}
