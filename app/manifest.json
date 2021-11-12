@@ -1,1 +1,27 @@
-{ "manifest_version": 2, "version": "1.0.0", "name": "Skiptro", "short_name": "Skiptro", "description": "Easily skip tv show intros", "developer": { "name": "Nitish Sachar", "url": "https://github.com/uioporqwerty/skiptro-web-ext" }, "author": "Nitish Sachar", "homepage_url": "https://github.com/uioporqwerty/skiptro-web-ext", "icons": { "64": "images/icon-64.png", "128": "images/icon-128.png", "300": "images/icon-300.png" }, "content_scripts": [ { "matches": [ "*://*/*" ], "js": [ "content_script.js" ] } ], "default_locale": "en" }
+{
+  "manifest_version": 2,
+  "version": "1.0.0",
+  "name": "Skiptro",
+  "short_name": "Skiptro",
+  "description": "Easily skip any show intro",
+  "developer": {
+    "name": "Nitish Sachar",
+    "url": "https://github.com/uioporqwerty/skiptro-web-ext"
+  },
+  "author": "Nitish Sachar",
+  "homepage_url": "https://github.com/uioporqwerty/skiptro-web-ext",
+  "icons": {
+    "64": "images/icon-64.png",
+    "128": "images/icon-128.png",
+    "300": "images/icon-300.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content_script.js"],
+      "css": ["components/skip-button/component.css"]
+    }
+  ],
+  "permissions": ["http://*/*", "https://*/*"],
+  "default_locale": "en"
+}

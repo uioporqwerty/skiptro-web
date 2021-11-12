@@ -1,3 +1,14 @@
 {
-    
+  "extensionName": {
+    "message": "Skiptro"
+  },
+  "extensionShortName": {
+    "message": "Skip Intros"
+  },
+  "extensionDescription": {
+    "message": "Skip intros to any show or video."
+  },
+  "skip": {
+    "message": "Skip"
+  }
 }
