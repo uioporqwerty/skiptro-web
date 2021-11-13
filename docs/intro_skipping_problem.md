@@ -11,11 +11,20 @@ A viewer wants to skip an intro for the video they are watching. We want to show
 
    **Problems With Approach**
 
-1. We won't get an accurate intro end until two different episodes of a show have been watched. If we're on S1E1 of a show then the image list would have the same set of images for all users. Once the S1E2 airs then one of the images in the new stream will match the existing intro and we'll have a starting and ending point. We could delete the nodes before the start and after the end to save storage space.
-1. Some TV shows have intros that start some time later. So this would treat that as a new intro. Possible solution is for each frame we do a hash and lookup and if we reach the end, only then do we treat the entire sequence as a possible tv intro.
-1. If a show has credits in its intros and there is a modification, then that's an issue since it'll treat that frame as the end duration.
+   1. We won't get an accurate intro end until two different episodes of a show have been watched. If we're on S1E1 of a show then the image list would have the same set of images for all users. Once the S1E2 airs then one of the images in the new stream will match the existing intro and we'll have a starting and ending point. We could delete the nodes before the start and after the end to save storage space.
+   2. Some TV shows have intros that start some time later. So this would treat that as a new intro. Possible solution is for each frame we do a hash and lookup and if we reach the end, only then do we treat the entire sequence as a possible tv intro.
+   3. If a show has credits in its intros and there is a modification, then that's an issue since it'll treat that frame as the end duration.
 
-1. **Audio Capture**: Stream the audio from the client to the server. Perhaps perform some sort of audio analysis on the file? https://hackernoon.com/intro-to-audio-analysis-recognizing-sounds-using-machine-learning-qy2r3ufl But how would we do that as we are streaming? We would need to create the training set as described in this article if we take an ML approach: https://www.iotforall.com/tensorflow-sound-classification-machine-learning-applications
+2. **Audio Capture**: Stream the audio from the client to the server. Perhaps perform some sort of audio analysis on the file? https://hackernoon.com/intro-to-audio-analysis-recognizing-sounds-using-machine-learning-qy2r3ufl But how would we do that as we are streaming? We would need to create the training set as described in this article if we take an ML approach: https://www.iotforall.com/tensorflow-sound-classification-machine-learning-applications
+
    **Problems with Approach**
-1. Creating the training set is annoying.
-1. ML won't really be learning from anything since each show will have its own intro. It'll only perform matching the incoming sound to what is in its training set.
+
+   1. Creating the training set is annoying.
+   2. ML won't really be learning from anything since each show will have its own intro. It'll only perform matching the incoming sound to what is in its training set.
+
+3. **User Generated**: Create an element on the UI that will allow users to mark the start and end of an intro. Once they mark the end, we will also collect the show name. We can use the show name to get metadata about the show and store it with the start and end of the intro. Note: Would be good to combine this approach with the other 2 above so we can say: "How did we do?" and if they reply thumbs down then we show this UI next time and update accordingly.
+
+   **Problems with Approach**
+
+   1. User entered data might be inaccurate. We'll have to average out the start and end points marked by users to get an accurate one. If not many users watch a show or participate then it could be inaccurrate although it is in the best interest of the show watcher to give an accurate timing.
+   2. How do you determine which show is playing? If you stream Game of Thrones on HBO vs some pirating site, how would you know generally that Game of Thrones is playing? It's unlikely the pirating site will tell you so it seems like some video analysis is still needed to map to known intro timings.
