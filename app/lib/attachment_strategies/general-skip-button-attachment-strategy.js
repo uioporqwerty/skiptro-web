@@ -20,21 +20,7 @@ export class GeneralSkipButtonAttachmentStrategy
     return videoTags[0].parentNode.parentNode;
   }
 
-  findVideoElementParent(node: Node): ?Node {
-    if (node.tagName === 'VIDEO' || node.tagName === 'IFRAME') {
-      return node.tagName === 'VIDEO'
-        ? node.parentNode.parentNode
-        : node.parentNode;
-    }
-    for (var i = 0; i < node.childNodes.length; i++) {
-      const parent = this.findVideoElementParent(node.childNodes[i]);
-      if (parent) {
-        return parent;
-      }
-    }
-  }
-
-  attachObserved(skipButton: SkipButton) {
+  attachObserved(skipButton: SkipButton): void {
     const boundThis = this;
     var isAttached = false;
     const obs = new MutationObserver(function (mutations, observer) {
@@ -65,5 +51,27 @@ export class GeneralSkipButtonAttachmentStrategy
       attributes: false,
       characterData: false
     });
+  }
+
+  getVideoElement(): ?HTMLVideoElement {
+    const videoTags = document.getElementsByTagName('video');
+    if (!videoTags) {
+      return null;
+    }
+    return videoTags[0];
+  }
+
+  findVideoElementParent(node: Node): ?Node {
+    if (node.tagName === 'VIDEO' || node.tagName === 'IFRAME') {
+      return node.tagName === 'VIDEO'
+        ? node.parentNode.parentNode
+        : node.parentNode;
+    }
+    for (var i = 0; i < node.childNodes.length; i++) {
+      const parent = this.findVideoElementParent(node.childNodes[i]);
+      if (parent) {
+        return parent;
+      }
+    }
   }
 }

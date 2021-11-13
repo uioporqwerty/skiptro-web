@@ -3,23 +3,31 @@ import type { SkipButtonAttachmentStrategy } from '../../lib/attachment_strategi
 
 export class SkipButton {
   button: HTMLButtonElement;
+  video: ?HTMLVideoElement;
 
   constructor() {
     this.button = document.createElement('button');
     this.button.className = 'skip-button';
     this.button.innerText = browser.i18n.getMessage('skip');
     this.button.onclick = () => {
-      console.log('clicked skip button');
+      if (!this.video) {
+        console.error('Video element not defined.');
+        return;
+      }
+      console.log(`Duration of the video is ${this.video.duration}`);
+      console.log('Going to time 4s');
+      this.video.currentTime = 4;
     };
   }
 
   attach(attachmentStrategy: SkipButtonAttachmentStrategy): void {
     const targetAttachmentElement = attachmentStrategy.getAnchor();
     if (!targetAttachmentElement) {
-      attachmentStrategy.attachObserved(this);
+      attachmentStrategy.attachObserved(this, video);
       return;
     }
 
     targetAttachmentElement.appendChild(this.button);
+    this.video = attachmentStrategy.getVideoElement();
   }
 }
