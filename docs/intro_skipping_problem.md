@@ -5,8 +5,11 @@ A viewer wants to skip an intro for the video they are watching. We want to show
 # Possible Solutions
 
 1. **Video Capture:**: When a user starts a video, for the first `x` seconds we take frames at every `y` intervals an upload them to an API. When the API receives the first image it will hash the image and perform a look up to see if the image already exists in our repository.
+
    **1st Pass Image Exists**: We hash the images that are coming in from the client and compare them to each node in the image list. Once we have encountered the first image that is different, we then take the image list node where the difference occurs and use that as the end time for the intro and discard all image list nodes after it; we can also update the first reference in the image list with the end time. No users will be able to skip the video until this first pass happens on the back end.
+
    **Image Does Not Exist**: We will take all frames from the first frame to the last frame - could be first 30s of videos or more - and chain them together; the starting image will have a pointer to the next image like an image linked list. We will take a hash of each image similar to (this)[https://ourcodeworld.com/articles/read/1006/how-to-determine-whether-2-images-are-equal-or-not-with-the-perceptual-hash-in-python]. Retaining hashes is important for fast lookup the next time we need to search for an image.
+
    **2nd Pass Image Exists**: We get a hit for the starting sequence of the first image and there is a duration attached to the first image hash, so we can just return that duration.
 
    **Problems With Approach**
