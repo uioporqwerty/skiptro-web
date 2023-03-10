@@ -9,5 +9,5 @@
 
 [options]
 emoji=true
-
+exact_by_default=false
 [strict]

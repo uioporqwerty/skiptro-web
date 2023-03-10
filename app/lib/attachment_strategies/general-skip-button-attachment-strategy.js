@@ -1,7 +1,7 @@
 //@flow
 import type { SkipButton } from '../../components/skip-button/component';
 
-import { SkipButtonAttachmentStrategy } from './skip-button-attachment-strategy';
+import type { SkipButtonAttachmentStrategy } from './skip-button-attachment-strategy';
 
 export class GeneralSkipButtonAttachmentStrategy
   implements SkipButtonAttachmentStrategy
