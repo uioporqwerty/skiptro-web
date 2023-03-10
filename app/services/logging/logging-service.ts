@@ -1,4 +1,3 @@
-//@flow
 export interface LoggingService {
     debug(message: string): void;
     info(message: string): void;
