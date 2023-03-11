@@ -56,6 +56,9 @@ jobs:
             - run: npm run check:linting
               name: 'Check linting'
 
+            - run: npm run test:unit
+              name: 'Run unit tests'
+
             - run: npm run build:firefox
               name: 'Build Firefox'
 
