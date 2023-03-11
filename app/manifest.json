@@ -18,7 +18,7 @@
     "content_scripts": [
         {
             "matches": ["http://*/*", "https://*/*"],
-            "js": ["content-script.js"],
+            "js": ["main.js"],
             "css": ["components/skip-button/component.css"]
         }
     ],
