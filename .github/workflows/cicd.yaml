@@ -8,7 +8,7 @@ on:
 jobs:
     build-deploy:
         name: 'Build, Lint, Test, and Deploy'
-        runs-on: macos-latest
+        runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
               name: 'Checkout'
@@ -23,8 +23,6 @@ jobs:
 
             - name: Decrypt sensitive files
               run: |
-                  export NODE_OPTIONS=--openssl-legacy-provider
-
                   gpg -d --passphrase "${{ secrets.WEB_EXTENSION_GPG_PASSPHRASE }}" --batch ./app/config.ts.asc > ./app/config.ts
 
             - name: 'Set env.RELEASE_VERSION'
