@@ -1,49 +1,49 @@
 {
-  "name": "skiptro-web-ext",
-  "version": "1.0.0",
-  "description": "Easily skip tv show intros",
-  "main": "content_script.js",
-  "scripts": {
-    "build:firefox": "webextension-toolbox build firefox",
-    "build:edge": "webextension-toolbox build edge",
-    "build:chrome": "webextension-toolbox build chrome",
-    "build:opera": "webextension-toolbox build opera",
-    "start:firefox": "webextension-toolbox dev firefox",
-    "start:edge": "webextension-toolbox dev edge",
-    "start:chrome": "webextension-toolbox dev chrome",
-    "start:opera": "webextension-toolbox dev opera"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/uioporqwerty/skiptro-web-ext.git"
-  },
-  "author": "Nitish Sachar",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/uioporqwerty/skiptro-web-ext/issues"
-  },
-  "homepage": "https://github.com/uioporqwerty/skiptro-web-ext#readme",
-  "devDependencies": {
-    "@types/mixpanel-browser": "^2.38.1",
-    "chrome-webstore-upload-cli": "^2.2.0",
-    "eslint": "^8.35.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-prettier": "^8.7.0",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-prettier": "^4.2.1",
-    "husky": "^8.0.3",
-    "lint-staged": "^13.1.2",
-    "prettier": "^2.8.4",
-    "ts-loader": "^9.4.2",
-    "typescript": "^4.9.5",
-    "web-ext-types": "^3.2.1",
-    "webextension-toolbox": "^4.0.3"
-  },
-  "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown"
-  },
-  "dependencies": {
-    "mixpanel-browser": "^2.45.0",
-    "typed-inject": "^3.0.1"
-  }
+    "name": "skiptro-web-ext",
+    "version": "1.0.0",
+    "description": "Easily skip tv show intros",
+    "main": "content_script.js",
+    "scripts": {
+        "build:firefox": "webextension-toolbox build firefox --config ./webext.config.js",
+        "build:edge": "webextension-toolbox build edge --config ./webext.config.js",
+        "build:chrome": "webextension-toolbox build chrome --config ./webext.config.js",
+        "build:opera": "webextension-toolbox build opera --config ./webext.config.js",
+        "start:firefox": "webextension-toolbox dev firefox --config ./webext.config.js",
+        "start:edge": "webextension-toolbox dev edge --config ./webext.config.js",
+        "start:chrome": "webextension-toolbox dev chrome --config ./webext.config.js",
+        "start:opera": "webextension-toolbox dev opera --config ./webext.config.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/uioporqwerty/skiptro-web-ext.git"
+    },
+    "author": "Nitish Sachar",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/uioporqwerty/skiptro-web-ext/issues"
+    },
+    "homepage": "https://github.com/uioporqwerty/skiptro-web-ext#readme",
+    "devDependencies": {
+        "@types/mixpanel-browser": "^2.38.1",
+        "chrome-webstore-upload-cli": "^2.2.0",
+        "eslint": "^8.35.0",
+        "eslint-config-airbnb": "^19.0.4",
+        "eslint-config-prettier": "^8.7.0",
+        "eslint-plugin-import": "^2.27.5",
+        "eslint-plugin-prettier": "^4.2.1",
+        "husky": "^8.0.3",
+        "lint-staged": "^13.1.2",
+        "prettier": "^2.8.4",
+        "ts-loader": "^9.4.2",
+        "typescript": "^4.9.5",
+        "web-ext-types": "^3.2.1",
+        "webextension-toolbox": "^4.0.3"
+    },
+    "lint-staged": {
+        "**/*": "prettier --write --ignore-unknown"
+    },
+    "dependencies": {
+        "mixpanel-browser": "^2.45.0",
+        "typed-inject": "^3.0.1"
+    }
 }
