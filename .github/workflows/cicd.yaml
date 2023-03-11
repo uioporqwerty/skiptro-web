@@ -50,6 +50,9 @@ jobs:
                   commit-msg: 'Update manfiest.json version to ${{ env.RELEASE_VERSION}}'
                   github-token: ${{ secrets.SECRET_GITHUB_TOKEN }}
 
+            - run: npm run check:formatting
+              name: 'Check formatting'
+
             - run: npm run build:firefox
               name: 'Build Firefox'
 

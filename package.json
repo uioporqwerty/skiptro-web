@@ -4,6 +4,7 @@
     "description": "Easily skip tv show intros",
     "main": "content_script.js",
     "scripts": {
+        "check:formatting": "prettier --check app",
         "build:firefox": "webextension-toolbox build firefox --config ./webext.config.js",
         "build:edge": "webextension-toolbox build edge --config ./webext.config.js",
         "build:chrome": "webextension-toolbox build chrome --config ./webext.config.js",
@@ -32,7 +33,7 @@
         "eslint-plugin-import": "^2.27.5",
         "eslint-plugin-prettier": "^4.2.1",
         "husky": "^8.0.3",
-        "lint-staged": "^13.1.2",
+        "lint-staged": "^13.2.0",
         "prettier": "^2.8.4",
         "ts-loader": "^9.4.2",
         "typescript": "^4.9.5",
