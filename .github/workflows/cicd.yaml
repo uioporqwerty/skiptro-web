@@ -17,6 +17,7 @@ jobs:
               name: 'Setup Node'
               with:
                   node-version: '18.11.0'
+                  cache: 'npm'
 
             - run: npm install
               name: 'Install dependencies'
