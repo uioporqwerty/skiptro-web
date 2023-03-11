@@ -1,5 +1,5 @@
-import { AnalyticsService } from 'app/services/analytics/analytics-service';
-import { LoggingService } from 'app/services/logging/logging-service';
+import { AnalyticsService } from '../../services/analytics/analytics-service';
+import { LoggingService } from '../../services/logging/logging-service';
 import { SkipButtonAttachmentStrategy } from '../../lib/attachment-strategies/skip-button-attachment-strategy';
 
 export class SkipButton {
