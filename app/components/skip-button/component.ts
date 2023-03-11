@@ -1,10 +1,12 @@
+import { LoggingService } from 'app/services/logging/logging-service';
 import { SkipButtonAttachmentStrategy } from '../../lib/attachment_strategies/skip-button-attachment-strategy';
 
 export class SkipButton {
-    button: HTMLButtonElement;
-    video?: HTMLVideoElement | null;
+    private video?: HTMLVideoElement | null;
+    public button: HTMLButtonElement;
+    public static inject = ['logger'] as const;
 
-    constructor() {
+    constructor(private log: LoggingService) {
         this.button = document.createElement('button');
         this.button.className = 'skip-button';
         this.button.innerText = browser.i18n.getMessage('skip');

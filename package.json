@@ -39,5 +39,8 @@
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
+  },
+  "dependencies": {
+    "typed-inject": "^3.0.1"
   }
 }
