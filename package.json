@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/uioporqwerty/skiptro-web-ext#readme",
   "devDependencies": {
+    "@types/mixpanel-browser": "^2.38.1",
     "chrome-webstore-upload-cli": "^2.2.0",
     "eslint": "^8.35.0",
     "eslint-config-airbnb": "^19.0.4",
@@ -41,6 +42,7 @@
     "**/*": "prettier --write --ignore-unknown"
   },
   "dependencies": {
+    "mixpanel-browser": "^2.45.0",
     "typed-inject": "^3.0.1"
   }
 }
