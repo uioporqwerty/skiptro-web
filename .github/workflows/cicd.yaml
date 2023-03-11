@@ -54,6 +54,7 @@ jobs:
               name: 'Build Firefox'
 
             - uses: actions/upload-artifact@v3
+              name: 'Upload Firefox Extension to Github Actions'
               with:
                   name: Firefox Extension
                   path: packages/skiptro-web-ext.v${{ env.RELEASE_VERSION }}.firefox.xpi.zip
