@@ -6,6 +6,7 @@
     "scripts": {
         "check:formatting": "prettier --check app",
         "check:linting": "npx eslint app",
+        "test:unit": "jest",
         "build:firefox": "webextension-toolbox build firefox --config ./webext.config.js",
         "build:edge": "webextension-toolbox build edge --config ./webext.config.js",
         "build:chrome": "webextension-toolbox build chrome --config ./webext.config.js",
@@ -26,6 +27,7 @@
     },
     "homepage": "https://github.com/uioporqwerty/skiptro-web-ext#readme",
     "devDependencies": {
+        "@types/jest": "^29.4.0",
         "@types/mixpanel-browser": "^2.38.1",
         "@typescript-eslint/eslint-plugin": "^5.54.1",
         "@typescript-eslint/parser": "^5.54.1",
@@ -36,8 +38,10 @@
         "eslint-plugin-import": "^2.27.5",
         "eslint-plugin-prettier": "^4.2.1",
         "husky": "^8.0.3",
+        "jest": "^29.5.0",
         "lint-staged": "^13.2.0",
         "prettier": "^2.8.4",
+        "ts-jest": "^29.0.5",
         "ts-loader": "^9.4.2",
         "typescript": "^4.9.5",
         "web-ext-types": "^3.2.1",
