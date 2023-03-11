@@ -1,6 +1,6 @@
 import { AnalyticsService } from 'app/services/analytics/analytics-service';
 import { LoggingService } from 'app/services/logging/logging-service';
-import { SkipButtonAttachmentStrategy } from '../../lib/attachment_strategies/skip-button-attachment-strategy';
+import { SkipButtonAttachmentStrategy } from '../../lib/attachment-strategies/skip-button-attachment-strategy';
 
 export class SkipButton {
     private video?: HTMLVideoElement | null;
