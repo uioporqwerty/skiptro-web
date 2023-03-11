@@ -53,6 +53,9 @@ jobs:
             - run: npm run check:formatting
               name: 'Check formatting'
 
+            - run: npm run check:linting
+              name: 'Check linting'
+
             - run: npm run build:firefox
               name: 'Build Firefox'
 

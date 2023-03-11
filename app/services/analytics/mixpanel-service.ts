@@ -9,7 +9,10 @@ export class MixpanelService implements AnalyticsService {
         });
     }
 
-    track(event: string, data?: Record<any, any>): void {
+    track(
+        event: string,
+        data?: Record<string, boolean | string | number>
+    ): void {
         mixpanel.track(event, data);
     }
 }

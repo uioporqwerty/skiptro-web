@@ -5,6 +5,7 @@
     "main": "content_script.js",
     "scripts": {
         "check:formatting": "prettier --check app",
+        "check:linting": "npx eslint app",
         "build:firefox": "webextension-toolbox build firefox --config ./webext.config.js",
         "build:edge": "webextension-toolbox build edge --config ./webext.config.js",
         "build:chrome": "webextension-toolbox build chrome --config ./webext.config.js",
@@ -26,8 +27,10 @@
     "homepage": "https://github.com/uioporqwerty/skiptro-web-ext#readme",
     "devDependencies": {
         "@types/mixpanel-browser": "^2.38.1",
+        "@typescript-eslint/eslint-plugin": "^5.54.1",
+        "@typescript-eslint/parser": "^5.54.1",
         "chrome-webstore-upload-cli": "^2.2.0",
-        "eslint": "^8.35.0",
+        "eslint": "^8.36.0",
         "eslint-config-airbnb": "^19.0.4",
         "eslint-config-prettier": "^8.7.0",
         "eslint-plugin-import": "^2.27.5",

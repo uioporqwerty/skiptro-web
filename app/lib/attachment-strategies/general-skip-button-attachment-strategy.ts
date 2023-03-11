@@ -20,16 +20,17 @@ export class GeneralSkipButtonAttachmentStrategy
     }
 
     attachObserved(skipButton: SkipButton): void {
+        // eslint-disable-next-line @typescript-eslint/no-this-alias
         const boundThis = this;
-        var isAttached = false;
-        const obs = new MutationObserver(function (mutations, observer) {
+        let isAttached = false;
+        const obs = new MutationObserver(function (mutations) {
             if (isAttached) {
                 return;
             }
-            for (var i = 0; i < mutations.length; i++) {
+            for (let i = 0; i < mutations.length; i++) {
                 const mutationRecord = mutations[i];
                 for (
-                    var j = 0;
+                    let j = 0;
                     j < mutationRecord.target.childNodes.length;
                     j++
                 ) {
@@ -72,7 +73,7 @@ export class GeneralSkipButtonAttachmentStrategy
                 ? node.parentNode?.parentNode
                 : node.parentNode;
         }
-        for (var i = 0; i < node.childNodes.length; i++) {
+        for (let i = 0; i < node.childNodes.length; i++) {
             const parent = this.findVideoElementParent(
                 node.childNodes[i] as HTMLElement
             );
