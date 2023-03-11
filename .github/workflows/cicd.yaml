@@ -10,10 +10,10 @@ jobs:
         name: 'Build, Lint, Test, and Deploy'
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v3
               name: 'Checkout'
 
-            - uses: actions/setup-node@v2
+            - uses: actions/setup-node@v3
               name: 'Setup Node'
 
             - run: npm install
@@ -21,7 +21,6 @@ jobs:
 
             - name: Decrypt sensitive files
               run: |
-                  ls
                   gpg -d --passphrase "${{ secrets.WEB_EXTENSION_GPG_PASSPHRASE }}" --batch ./app/config.ts.asc > ./app/config.ts
 
             - name: 'Set env.RELEASE_VERSION'
