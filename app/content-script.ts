@@ -5,13 +5,16 @@ import { rootInjector } from './ioc-config';
 
 // Find video element. If there are multiple video elements on the screen, find the first video element that is playing; likely that will be the primary video. Start trying to find a video element using a general strategy. If that fails and the video element is not found, then use a site specific strategy to locate the video. Use observer API to find videos that may be injected into the DOM after the fact.
 
-let videoLocatorStrategy = rootInjector.injectClass(
+const videoLocatorStrategy = rootInjector.injectClass(
     GenericVideoLocatorStrategy
 );
 
-window.addEventListener('newVideoDetected', (event: any) => {
-    const videoElement = event.detail as HTMLVideoElement;
-});
+window.addEventListener(
+    'newVideoDetected',
+    (event: CustomEventInit<HTMLVideoElement> | undefined) => {
+        const videoElement = event?.detail as HTMLVideoElement;
+    }
+);
 
 videoLocatorStrategy.searchForVideoElement();
 

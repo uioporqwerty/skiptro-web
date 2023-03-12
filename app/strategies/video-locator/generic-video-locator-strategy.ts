@@ -8,9 +8,9 @@ export class GenericVideoLocatorStrategy implements VideoLocatorStrategy {
     constructor(private log: LoggingService) {}
 
     searchForVideoElement(): void {
-        var videoElements = document.getElementsByTagName('video');
-        for (var i = 0; i < videoElements.length; i++) {
-            var videoElement = videoElements[i];
+        const videoElements = document.getElementsByTagName('video');
+        for (const i = 0; i < videoElements.length; i++) {
+            const videoElement = videoElements[i];
 
             videoElement.onplay = () => {
                 if (
