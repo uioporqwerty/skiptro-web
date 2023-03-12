@@ -16,12 +16,12 @@ export class SkipButton {
         this.button.innerText = browser.i18n.getMessage('skip');
         this.button.onclick = () => {
             if (!this.video) {
-                console.error('Video element not defined.');
+                this.log.error('Video element not defined.');
                 return;
             }
             this.analytics.track('Skip Clicked');
-            console.log(`Duration of the video is ${this.video.duration}`);
-            console.log('Going to time 4s');
+            this.log.debug(`Duration of the video is ${this.video.duration}`);
+            this.log.debug('Going to time 4s');
             this.video.currentTime = 4;
         };
     }
