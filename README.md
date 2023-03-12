@@ -1,6 +1,7 @@
 # Skiptro
 
 [![CI/CD](https://github.com/uioporqwerty/skiptro-web/actions/workflows/cicd.yaml/badge.svg?branch=main)](https://github.com/uioporqwerty/skiptro-web/actions/workflows/cicd.yaml)
+[![codecov](https://codecov.io/gh/uioporqwerty/skiptro-web/branch/main/graph/badge.svg?token=oTxaR7SRh8)](https://codecov.io/gh/uioporqwerty/skiptro-web)
 
 Skiptro is a web extension that allows you to skip intros for any video on a page. Skiptro displays a "Skip" button on the video which allows you to completely skip the intro.
 
