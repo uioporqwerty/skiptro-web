@@ -24,6 +24,7 @@ jobs:
 
             - name: Decrypt sensitive files
               run: |
+                  export NODE_OPTIONS=--openssl-legacy-provider
                   gpg -d --passphrase "${{ secrets.WEB_EXTENSION_GPG_PASSPHRASE }}" --batch ./app/config.ts.asc > ./app/config.ts
 
             - name: 'Set default env.RELEASE_VERSION'
