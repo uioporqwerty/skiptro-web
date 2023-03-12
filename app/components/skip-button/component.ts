@@ -1,18 +1,20 @@
 import { AnalyticsService } from '../../services/analytics/analytics-service';
 import { LoggingService } from '../../services/logging/logging-service';
 import { SkipButtonAttachmentStrategy } from '../../lib/attachment-strategies/skip-button-attachment-strategy';
+import { FeatureService } from '../../services/feature/feature-service';
 
 export class SkipButton {
     private video?: HTMLVideoElement | null;
     public button: HTMLButtonElement;
-    public static inject = ['logger', 'analytics'] as const;
+    public static inject = ['logger', 'analytics', 'features'] as const;
 
     constructor(
         private log: LoggingService,
-        private analytics: AnalyticsService
+        private analytics: AnalyticsService,
+        private features: FeatureService
     ) {
         this.button = document.createElement('button');
-        this.button.className = 'skip-button';
+        this.button.className = 'skip';
         this.button.innerText = browser.i18n.getMessage('skip');
         this.button.onclick = () => {
             if (!this.video) {
