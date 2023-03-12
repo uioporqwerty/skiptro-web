@@ -6,7 +6,7 @@
     "scripts": {
         "check:formatting": "prettier --check app",
         "check:linting": "npx eslint app",
-        "test:unit": "jest",
+        "test:unit": "jest --coverage",
         "build:firefox": "webextension-toolbox build firefox --config ./webext.config.js",
         "build:edge": "webextension-toolbox build edge --config ./webext.config.js",
         "build:chrome": "webextension-toolbox build chrome --config ./webext.config.js",

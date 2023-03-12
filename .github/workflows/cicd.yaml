@@ -59,6 +59,9 @@ jobs:
             - run: npm run test:unit
               name: 'Run unit tests'
 
+            - name: Upload coverage reports to Codecov
+              uses: codecov/codecov-action@v3
+
             - run: npm run build:firefox
               name: 'Build Firefox'
 
