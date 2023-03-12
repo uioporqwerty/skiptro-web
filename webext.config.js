@@ -6,7 +6,7 @@ module.exports = {
         config.output.filename = 'main.js';
         config.entry = './content-script.ts';
         config.resolve = {
-            extensions: ['.js', '.json', '.mjs', '.jsx', '.ts']
+            extensions: ['.js', '.json', '.ts']
         };
         config.module = {
             rules: [
