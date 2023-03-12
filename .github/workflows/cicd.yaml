@@ -16,7 +16,7 @@ jobs:
             - uses: actions/setup-node@v3
               name: 'Setup Node'
               with:
-                  node-version: '18.11.0'
+                  node-version: '16'
                   cache: 'npm'
 
             - run: npm install
@@ -24,7 +24,6 @@ jobs:
 
             - name: Decrypt sensitive files
               run: |
-                  export NODE_OPTIONS=--openssl-legacy-provider
                   gpg -d --passphrase "${{ secrets.WEB_EXTENSION_GPG_PASSPHRASE }}" --batch ./app/config.ts.asc > ./app/config.ts
 
             - name: 'Set default env.RELEASE_VERSION'
