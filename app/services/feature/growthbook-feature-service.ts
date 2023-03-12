@@ -1,6 +1,7 @@
 import { LoggingService } from '../logging/logging-service';
 import { FeatureResult, GrowthBook } from '@growthbook/growthbook';
 import { Config } from '../../config';
+import { Feature } from './feature';
 
 export class GrowthBookFeatureService {
     static inject = ['logger'] as const;
@@ -21,7 +22,11 @@ export class GrowthBookFeatureService {
         });
     }
 
-    isOn(featureName: string): boolean {
-        return this.growthbook.isOn(featureName);
+    isOn(feature: Feature): boolean {
+        return this.growthbook.isOn(feature);
+    }
+
+    getFeatureValue(feature: Feature, fallbackValue: any): any {
+        return this.growthbook.getFeatureValue(feature, fallbackValue);
     }
 }

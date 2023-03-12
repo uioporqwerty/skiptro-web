@@ -1,3 +1,6 @@
+import { Feature } from './feature';
+
 export interface FeatureService {
-    isOn(featureName: string): boolean;
+    isOn(feature: Feature): boolean;
+    getFeatureValue(feature: Feature, fallbackValue: any): any;
 }
