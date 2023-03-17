@@ -13,7 +13,6 @@ export class GrowthBookFeatureService {
             clientKey: Config.growthBookClientKey,
             enableDevMode: Config.environment === 'development',
             onFeatureUsage: (key: string, result: FeatureResult<any>) => {
-                // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
                 this.log.debug(`Feature ${key} has value ${result.value}`);
             }
         });
@@ -22,7 +21,6 @@ export class GrowthBookFeatureService {
             .loadFeatures({
                 autoRefresh: true
             })
-            // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
             .catch((err) => {
                 this.log.error(
                     `Error loading features from GrowthBook: ${err}`
