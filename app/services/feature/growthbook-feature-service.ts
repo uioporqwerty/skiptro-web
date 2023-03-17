@@ -13,13 +13,21 @@ export class GrowthBookFeatureService {
             clientKey: Config.growthBookClientKey,
             enableDevMode: Config.environment === 'development',
             onFeatureUsage: (key: string, result: FeatureResult<any>) => {
+                // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
                 this.log.debug(`Feature ${key} has value ${result.value}`);
             }
         });
 
-        this.growthbook.loadFeatures({
-            autoRefresh: true
-        });
+        this.growthbook
+            .loadFeatures({
+                autoRefresh: true
+            })
+            // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+            .catch((err) => {
+                this.log.error(
+                    `Error loading features from GrowthBook: ${err}`
+                );
+            });
     }
 
     isOn(feature: Feature): boolean {

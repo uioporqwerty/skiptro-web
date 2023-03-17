@@ -10,5 +10,9 @@ module.exports = {
         project: true,
         tsconfigRootDir: __dirname
     },
+    rules: {
+        '@typescript-eslint/no-explicit-any': 'off',
+        '@typescript-eslint/restrict-template-expressions': 'off'
+    },
     root: true
 };
