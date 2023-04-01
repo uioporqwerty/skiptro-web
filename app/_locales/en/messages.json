@@ -10,5 +10,11 @@
     },
     "skip": {
         "message": "Skip"
+    },
+    "notification_updateRequired_title": {
+        "message": "Skiptro Update Required"
+    },
+    "notification_updateRequired_message": {
+        "message": "Version $1 of Skiptro is required."
     }
 }

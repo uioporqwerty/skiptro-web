@@ -15,6 +15,10 @@
         "128": "images/icon-128.png",
         "300": "images/icon-300.png"
     },
+    "background": {
+        "scripts": ["main.js"],
+        "persistent": false
+    },
     "content_scripts": [
         {
             "matches": ["http://*/*", "https://*/*"],
@@ -22,6 +26,6 @@
             "css": ["components/skip-button/component.css"]
         }
     ],
-    "permissions": ["http://*/*", "https://*/*"],
+    "permissions": ["http://*/*", "https://*/*", "notifications", "storage"],
     "default_locale": "en"
 }

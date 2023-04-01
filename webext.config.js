@@ -4,7 +4,7 @@ module.exports = {
     webpack: (config) => {
         config.output.hashFunction = 'sha256';
         config.output.filename = 'main.js';
-        config.entry = './content-script.ts';
+        config.entry = './index.ts';
         config.resolve = {
             extensions: ['.js', '.json', '.ts']
         };

@@ -52,6 +52,7 @@
     },
     "dependencies": {
         "@growthbook/growthbook": "^0.23.0",
+        "compare-versions": "^6.0.0-rc.1",
         "mixpanel-browser": "^2.45.0",
         "typed-inject": "^3.0.1"
     }
