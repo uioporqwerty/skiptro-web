@@ -12,7 +12,8 @@ module.exports = {
     },
     rules: {
         '@typescript-eslint/no-explicit-any': 'off',
-        '@typescript-eslint/restrict-template-expressions': 'off'
+        '@typescript-eslint/restrict-template-expressions': 'off',
+        '@typescript-eslint/no-unsafe-return': 'off'
     },
     root: true
 };
