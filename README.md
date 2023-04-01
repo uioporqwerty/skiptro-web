@@ -10,4 +10,4 @@ Skiptro is a web extension that allows you to skip intros for any video on a pag
 
 Changes to the `app/config.ts` require that the development version is symmetrically encrypted using the following command and the encrypted file committed to source control:
 
-`gpg --symmetric --batch --yes --passphrase "$passphrase" --output ./config.ts.asc ./app/config.ts`
+`gpg --symmetric --batch --yes --passphrase "$passphrase" --output ./app/config.ts.asc ./app/config.ts`
