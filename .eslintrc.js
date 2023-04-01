@@ -1,9 +1,5 @@
 module.exports = {
-    extends: [
-        'eslint:recommended',
-        'plugin:@typescript-eslint/recommended',
-        'plugin:@typescript-eslint/recommended-requiring-type-checking'
-    ],
+    extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
     parser: '@typescript-eslint/parser',
     plugins: ['@typescript-eslint'],
     parserOptions: {
@@ -12,8 +8,7 @@ module.exports = {
     },
     rules: {
         '@typescript-eslint/no-explicit-any': 'off',
-        '@typescript-eslint/restrict-template-expressions': 'off',
-        '@typescript-eslint/no-unsafe-return': 'off'
+        '@typescript-eslint/restrict-template-expressions': 'off'
     },
     root: true
 };
