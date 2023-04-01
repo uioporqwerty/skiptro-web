@@ -12,12 +12,9 @@ export class MinimumVersionChecker {
         private features: FeatureService
     ) {}
 
-    public requiresUpdate() {
+    public requiresUpdate(): boolean {
         const currentVersion = Config.extensionVersion;
-        const minimumVersion = this.features.getFeatureValue(
-            Feature.webExtensionMinimumVersion,
-            '1.0.0'
-        );
+        const minimumVersion = this.getMinimumVersion();
 
         const result = compare(currentVersion, minimumVersion, '<');
         this.log.debug(
@@ -27,10 +24,10 @@ export class MinimumVersionChecker {
         return result;
     }
 
-    public getMinimumVersion() {
+    public getMinimumVersion(): string {
         return this.features.getFeatureValue(
             Feature.webExtensionMinimumVersion,
             '1.0.0'
-        );
+        ) as string;
     }
 }

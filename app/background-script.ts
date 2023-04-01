@@ -14,12 +14,14 @@ export class BackgroundScript {
 
     public run() {
         this.attachListeners();
+        // eslint-disable-next-line @typescript-eslint/no-misused-promises
         setInterval(async () => await this.checkForUpdate(), ONE_MINUTE);
     }
 
     private attachListeners() {
+        // eslint-disable-next-line @typescript-eslint/no-misused-promises
         browser.runtime.onInstalled.addListener(async () => {
-            browser.storage.local.set({
+            await browser.storage.local.set({
                 notification_updateRequired_prompted: false
             });
         });
@@ -30,7 +32,8 @@ export class BackgroundScript {
             this.log.debug('Update required.');
             const minimumVersion: string =
                 this.minimumVersionChecker.getMinimumVersion();
-            browser.runtime.sendMessage({
+
+            await browser.runtime.sendMessage({
                 type: BrowserMessageType.updateRequired
             });
 
@@ -49,17 +52,15 @@ export class BackgroundScript {
                 'notification_updateRequired_message',
                 [minimumVersion]
             );
-            browser.notifications
-                .create(NotificationId.updateRequired, {
-                    type: 'basic',
-                    title: notificationTitle,
-                    message: notificationMessage
-                })
-                .then(() => {
-                    browser.storage.local.set({
-                        notification_updateRequired_prompted: true
-                    });
-                });
+
+            await browser.notifications.create(NotificationId.updateRequired, {
+                type: 'basic',
+                title: notificationTitle,
+                message: notificationMessage
+            });
+            await browser.storage.local.set({
+                notification_updateRequired_prompted: true
+            });
         } else {
             this.log.debug('Update not required.');
         }
