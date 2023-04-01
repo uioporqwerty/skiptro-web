@@ -28,6 +28,6 @@ export class MinimumVersionChecker {
         return this.features.getFeatureValue(
             Feature.webExtensionMinimumVersion,
             '1.0.0'
-        ) as string;
+        );
     }
 }
