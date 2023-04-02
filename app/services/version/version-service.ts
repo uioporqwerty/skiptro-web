@@ -1,16 +1,26 @@
-import { LoggingService } from '../services/logging/logging-service';
-import { FeatureService } from '../services/feature/feature-service';
-import { Feature } from '../services/feature/feature';
-import { Config } from '../config';
+import { LoggingService } from '../logging/logging-service';
+import { FeatureService } from '../feature/feature-service';
+import { Feature } from '../feature/feature';
+import { Config } from '../../config';
 import { compare } from 'compare-versions';
 
-export class MinimumVersionChecker {
+interface IVersionService {
+    getExtensionVersion(): string;
+    getMinimumVersion(): string;
+    requiresUpdate(): boolean;
+}
+
+class VersionService implements IVersionService {
     static inject = ['logger', 'features'] as const;
 
     constructor(
         private log: LoggingService,
         private features: FeatureService
     ) {}
+
+    getExtensionVersion(): string {
+        return Config.extensionVersion;
+    }
 
     public requiresUpdate(): boolean {
         const currentVersion = Config.extensionVersion;
@@ -31,3 +41,5 @@ export class MinimumVersionChecker {
         );
     }
 }
+
+export { VersionService, IVersionService };

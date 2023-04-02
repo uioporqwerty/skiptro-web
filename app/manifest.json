@@ -15,6 +15,9 @@
         "128": "images/icon-128.png",
         "300": "images/icon-300.png"
     },
+    "browser_action": {
+        "default_popup": "index.html"
+    },
     "background": {
         "scripts": ["main.js"],
         "persistent": false

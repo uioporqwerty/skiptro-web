@@ -1,15 +1,15 @@
 import { BrowserMessageType } from './lib/browser-message-type';
-import { MinimumVersionChecker } from './lib/minimum-version-checker';
 import { NotificationId } from './lib/notification-id';
 import { ONE_MINUTE } from './lib/time';
 import { LoggingService } from './services/logging/logging-service';
+import { VersionService } from './services/version/version-service';
 
 export class BackgroundScript {
-    static inject = ['logger', 'minimumVersionChecker'] as const;
+    static inject = ['logger', 'versionService'] as const;
 
     constructor(
         private log: LoggingService,
-        private minimumVersionChecker: MinimumVersionChecker
+        private versionService: VersionService
     ) {}
 
     public run() {
@@ -28,10 +28,10 @@ export class BackgroundScript {
     }
 
     private async checkForUpdate() {
-        if (this.minimumVersionChecker.requiresUpdate()) {
+        if (this.versionService.requiresUpdate()) {
             this.log.debug('Update required.');
             const minimumVersion: string =
-                this.minimumVersionChecker.getMinimumVersion();
+                this.versionService.getMinimumVersion();
 
             await browser.runtime.sendMessage({
                 type: BrowserMessageType.updateRequired
