@@ -8,19 +8,26 @@
     "extensionShortName": {
         "message": "Skip Intros"
     },
+    "header_title": {
+        "message": "Skiptro"
+    },
     "notification_updateRequired_title": {
         "message": "Skiptro Update Required"
     },
     "notification_updateRequired_message": {
         "message": "Version $1 of Skiptro is required."
     },
-    "skip": {
-        "message": "Skip"
-    },
+
     "popup_currentVersionLabel": {
-        "message": "Current Version: $1"
+        "message": "v.$1"
+    },
+    "popup_licensesLinkText": {
+        "message": "Open Source Licenses"
     },
     "popup_title": {
         "message": "Skiptro"
+    },
+    "skip": {
+        "message": "Skip"
     }
 }

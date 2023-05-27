@@ -1,14 +1,19 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
     webpack: (config) => {
         config.output.hashFunction = 'sha256';
-        config.output.filename = 'main.js';
-        config.entry = './index.tsx';
+        config.output.filename = '[name].js';
+        config.entry = {
+            'background-script': './background-script.ts',
+            'content-script': './content-script.ts',
+            popup: './popup.tsx'
+        };
         config.resolve = {
             extensions: ['.js', '.json', '.ts', '.tsx']
         };
@@ -22,6 +27,14 @@ module.exports = {
                 {
                     test: /\.s[ac]ss$/i,
                     use: ['style-loader', 'css-loader', 'sass-loader']
+                },
+                {
+                    test: /\.s[ac]ss$/i,
+                    use: [
+                        MiniCssExtractPlugin.loader,
+                        'css-loader',
+                        'sass-loader'
+                    ]
                 }
             ]
         };
@@ -32,13 +45,17 @@ module.exports = {
                     { from: './manifest.json', to: './' },
                     { from: './_locales', to: './_locales' },
                     { from: './images', to: './images' },
-                    { from: './fonts', to: './fonts' }
+                    { from: './fonts', to: './fonts' },
+                    { from: '../node_modules/webextension-polyfill/dist/browser-polyfill.js', to: './' }
                 ]
             }),
             new HtmlWebpackPlugin({
                 template: path.resolve(__dirname, 'app', 'index.html'),
                 filename: 'index.html',
                 inject: true
+            }),
+            new MiniCssExtractPlugin({
+                filename: 'content-script.css'
             })
         ];
         console.dir(config);

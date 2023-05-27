@@ -1,0 +1,11 @@
+.popup-container {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.popup-content {
+    flex: 1;
+    overflow: auto;
+}

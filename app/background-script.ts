@@ -1,3 +1,4 @@
+import { rootInjector } from './ioc-config';
 import { BrowserMessageType } from './lib/browser-message-type';
 import { NotificationId } from './lib/notification-id';
 import { ONE_MINUTE } from './lib/time';
@@ -66,3 +67,6 @@ export class BackgroundScript {
         }
     }
 }
+
+const backgroundScript = rootInjector.injectClass(BackgroundScript);
+backgroundScript.run();

@@ -1,4 +1,4 @@
-import type { SkipButton } from '../../components/skip-button/component';
+import type { SkipButton } from '../../components/skip-button';
 
 export interface SkipButtonAttachmentStrategy {
     /**

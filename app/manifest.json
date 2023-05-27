@@ -19,14 +19,16 @@
         "default_popup": "index.html"
     },
     "background": {
-        "scripts": ["main.js"],
+        "scripts": ["browser-polyfill.js",
+                    "background-script.js"],
         "persistent": false
     },
     "content_scripts": [
         {
             "matches": ["http://*/*", "https://*/*"],
-            "js": ["main.js"],
-            "css": ["components/skip-button/component.css"]
+            "js": ["browser-polyfill.js",
+                   "content-script.js"],
+            "css": ["content-script.css"]
         }
     ],
     "permissions": ["http://*/*", "https://*/*", "notifications", "storage"],

@@ -1,8 +1,6 @@
 import { GenericVideoLocatorStrategy } from './strategies/video-locator/generic-video-locator-strategy';
 import { rootInjector } from './ioc-config';
 import { LoggingService } from './services/logging/logging-service';
-import { BrowserMessageType } from './lib/browser-message-type';
-import { NotificationId } from './lib/notification-id';
 
 export class ContentScript {
     static inject = ['logger'] as const;
@@ -10,8 +8,9 @@ export class ContentScript {
     constructor(private log: LoggingService) {}
 
     public run() {
-        // Find video element. If there are multiple video elements on the screen, find the first video element that is playing; likely that will be the primary video. Start trying to find a video element using a general strategy. If that fails and the video element is not found, then use a site specific strategy to locate the video. Use observer API to find videos that may be injected into the DOM after the fact.
-
+        // Find video element. If there are multiple video elements on the screen, find the first video element that is playing; likely that will be the primary video. 
+        // Start trying to find a video element using a general strategy. If that fails and the video element is not found, then use a site specific strategy to locate the video. 
+        // Use observer API to find videos that may be injected into the DOM after the fact.
         const videoLocatorStrategy = rootInjector.injectClass(
             GenericVideoLocatorStrategy
         );
@@ -30,3 +29,6 @@ export class ContentScript {
         // Once the skip button is attached to the video, if the user presses the skip button, then it is dismissed from the UI and the user is skipped to the end point. If the user goes back to before the intro or any time in between, then the skip intro button will show. If the user does nothing, then the skip intro button will automatically dismiss if the current location in the video >= end time of intro.
     }
 }
+
+const contentScript = rootInjector.injectClass(ContentScript);
+contentScript.run();
