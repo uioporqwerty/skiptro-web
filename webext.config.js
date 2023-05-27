@@ -2,6 +2,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const LicenseWebpackPlugin = require('license-webpack-plugin').LicenseWebpackPlugin;
 const webpack = require('webpack');
 const path = require('path');
 
@@ -56,6 +57,10 @@ module.exports = {
             }),
             new MiniCssExtractPlugin({
                 filename: 'content-script.css'
+            }),
+            new LicenseWebpackPlugin({
+                perChunkOutput: false,
+                outputFilename: 'licenses.txt'
             })
         ];
         console.dir(config);

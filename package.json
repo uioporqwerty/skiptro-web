@@ -11,11 +11,13 @@
         "build:edge": "webextension-toolbox build edge --config ./webext.config.js",
         "build:chrome": "webextension-toolbox build chrome --config ./webext.config.js",
         "build:opera": "webextension-toolbox build opera --config ./webext.config.js",
-        "start:firefox": "webextension-toolbox dev firefox --config ./webext.config.js",
-        "start:edge": "webextension-toolbox dev edge --config ./webext.config.js",
-        "start:chrome": "webextension-toolbox dev chrome --config ./webext.config.js",
-        "start:opera": "webextension-toolbox dev opera --config ./webext.config.js",
-        "precommit": "npm run check:formatting && npm run check:linting"
+        "copyLicenses": "cp $(find dist -name 'licenses.txt' -type f -print -quit) .",
+        "precommit": "npm run check:formatting && npm run check:linting",
+        "start:firefox": "webextension-toolbox dev firefox --config ./webext.config.js & npm run copyLicenses",
+        "start:edge": "webextension-toolbox dev edge --config ./webext.config.js & npm run copyLicenses",
+        "start:chrome": "webextension-toolbox dev chrome --config ./webext.config.js & npm run copyLicenses",
+        "start:opera": "webextension-toolbox dev opera --config ./webext.config.js & npm run copyLicenses"
+        
     },
     "repository": {
         "type": "git",
@@ -47,6 +49,7 @@
         "html-webpack-plugin": "^5.5.0",
         "husky": "^8.0.3",
         "jest": "^29.5.0",
+        "license-webpack-plugin": "^4.0.2",
         "mini-css-extract-plugin": "^2.7.6",
         "prettier": "^2.8.4",
         "sass": "^1.60.0",
