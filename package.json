@@ -14,7 +14,8 @@
         "start:firefox": "webextension-toolbox dev firefox --config ./webext.config.js",
         "start:edge": "webextension-toolbox dev edge --config ./webext.config.js",
         "start:chrome": "webextension-toolbox dev chrome --config ./webext.config.js",
-        "start:opera": "webextension-toolbox dev opera --config ./webext.config.js"
+        "start:opera": "webextension-toolbox dev opera --config ./webext.config.js",
+        "precommit": "npm run check:formatting && npm run check:linting"
     },
     "repository": {
         "type": "git",
@@ -72,7 +73,7 @@
     },
     "husky": {
         "hooks": {
-            "pre-commit": "lint-staged"
+            "pre-commit": "npm run precommit"
         }
     }
 }

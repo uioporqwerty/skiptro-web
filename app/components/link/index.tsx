@@ -10,7 +10,11 @@ interface Props extends HTMLAttributes<HTMLAnchorElement> {
 
 const LinkComponent: FC<Props> = ({ className, href, text, openInNewTab }) => {
     const target = openInNewTab ? '_blank' : undefined;
-    return <a href={href} className={className} target={target}>{text}</a>;
+    return (
+        <a href={href} className={className} target={target}>
+            {text}
+        </a>
+    );
 };
 
 export { LinkComponent as Link };

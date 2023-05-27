@@ -15,4 +15,3 @@ class i18nService implements Ii18nService {
 }
 
 export { i18nService, Ii18nService };
-``

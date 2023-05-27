@@ -24,12 +24,18 @@ class FooterComponent extends Component {
             [currentVersion]
         );
 
-        const licenseLink = "https://github.com/uioporqwerty/skiptro-web/licenses.md"
+        const licenseLink =
+            'https://github.com/uioporqwerty/skiptro-web/licenses.md';
 
         return (
-            <div className='footer'>
-                <Label className='footer-version' value={currentVersionLabel} />
-                <Link className='footer-licenses-link' href={licenseLink} text={this.i18n.getTranslation('popup_licensesLinkText')} openInNewTab={true}/>
+            <div className="footer">
+                <Label className="footer-version" value={currentVersionLabel} />
+                <Link
+                    className="footer-licenses-link"
+                    href={licenseLink}
+                    text={this.i18n.getTranslation('popup_licensesLinkText')}
+                    openInNewTab={true}
+                />
             </div>
         );
     }
