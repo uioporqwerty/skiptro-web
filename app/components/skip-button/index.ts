@@ -52,7 +52,14 @@ export class SkipButton {
         const videoRect = this.video.getBoundingClientRect();
         const skipButtonWidth = this.button.offsetWidth;
         const skipButtonHeight = this.button.offsetHeight;
-        this.button.style.top = `${videoRect.top + videoRect.height - skipButtonHeight - (videoRect.height * 0.30)}px`;
-        this.button.style.left = `${videoRect.left + videoRect.width - skipButtonWidth}px`;
+        this.button.style.top = `${
+            videoRect.top +
+            videoRect.height -
+            skipButtonHeight -
+            videoRect.height * 0.3
+        }px`;
+        this.button.style.left = `${
+            videoRect.left + videoRect.width - skipButtonWidth
+        }px`;
     }
 }

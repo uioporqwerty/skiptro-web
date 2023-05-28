@@ -1,8 +1,8 @@
 .skip-button {
     position: absolute;
     z-index: 999999;
-    background: rgba(0,0,0,.7);
-    border: 1px solid rgba(255,255,255,.5);
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     border-right: 0;
     color: #fff;
     font-size: 18px;
@@ -13,8 +13,8 @@
 }
 
 .skip-button:hover {
-    background: rgba(0,0,0,.9);
-    border: 1px solid rgb(255,255,255);
+    background: rgba(0, 0, 0, 0.9);
+    border: 1px solid rgb(255, 255, 255);
     border-right: 0;
 }
 
