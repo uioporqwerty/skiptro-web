@@ -29,6 +29,7 @@
             "css": ["content-script.css"]
         }
     ],
+    "web_accessible_resources": ["images/skip-forward.svg"],
     "permissions": ["http://*/*", "https://*/*", "notifications", "storage"],
     "default_locale": "en"
 }

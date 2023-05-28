@@ -27,7 +27,10 @@
     "popup_title": {
         "message": "Skiptro"
     },
-    "skip": {
-        "message": "Skip"
+    "skip_button_text": {
+        "message": "Skip Intro"
+    },
+    "skip_button_altText": {
+        "message": "Skip Intro"
     }
 }

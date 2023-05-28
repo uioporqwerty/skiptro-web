@@ -1,7 +1,6 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const LicenseWebpackPlugin = require('license-webpack-plugin').LicenseWebpackPlugin;
 const webpack = require('webpack');
 const path = require('path');
@@ -28,14 +27,6 @@ module.exports = {
                 {
                     test: /\.s[ac]ss$/i,
                     use: ['style-loader', 'css-loader', 'sass-loader']
-                },
-                {
-                    test: /\.s[ac]ss$/i,
-                    use: [
-                        MiniCssExtractPlugin.loader,
-                        'css-loader',
-                        'sass-loader'
-                    ]
                 }
             ]
         };
@@ -44,6 +35,7 @@ module.exports = {
             new CopyWebpackPlugin({
                 patterns: [
                     { from: './manifest.json', to: './' },
+                    { from: './content-script.css', to: './' },
                     { from: './_locales', to: './_locales' },
                     { from: './images', to: './images' },
                     { from: './fonts', to: './fonts' },
@@ -54,9 +46,6 @@ module.exports = {
                 template: path.resolve(__dirname, 'app', 'index.html'),
                 filename: 'index.html',
                 inject: true
-            }),
-            new MiniCssExtractPlugin({
-                filename: 'content-script.css'
             }),
             new LicenseWebpackPlugin({
                 perChunkOutput: false,

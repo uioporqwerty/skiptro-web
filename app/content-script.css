@@ -1,0 +1,27 @@
+.skip-button {
+    position: absolute;
+    z-index: 999999;
+    background: rgba(0,0,0,.7);
+    border: 1px solid rgba(255,255,255,.5);
+    border-right: 0;
+    color: #fff;
+    font-size: 18px;
+    line-height: normal;
+    padding: 10px 6px 8px 10px;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+.skip-button:hover {
+    background: rgba(0,0,0,.9);
+    border: 1px solid rgb(255,255,255);
+    border-right: 0;
+}
+
+.skip-button-icon {
+    padding-left: 6px;
+    height: 18px;
+    width: 18px;
+    vertical-align: middle;
+    margin-bottom: 4px;
+}
