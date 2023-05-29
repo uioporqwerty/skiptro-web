@@ -49,7 +49,10 @@ module.exports = {
             }),
             new LicenseWebpackPlugin({
                 perChunkOutput: false,
-                outputFilename: 'licenses.txt'
+                outputFilename: 'licenses.txt',
+                licenseTextOverrides: {
+                    '@growthbook/growthbook': 'This project uses the MIT license. The core GrowthBook app will always remain open and free, although we may add some commercial enterprise add-ons in the future.'
+                }
             })
         ];
         console.dir(config);
