@@ -11,20 +11,31 @@ export class GenericVideoLocatorStrategy implements VideoLocatorStrategy {
         const videoElements = document.getElementsByTagName('video');
         for (let i = 0; i < videoElements.length; i++) {
             const videoElement = videoElements[i];
+            
+            if (this.videoIsAutoPlaying(videoElement)) {
+                this.videoElement = videoElement;
+                this.sendVideoEvent(this.videoElement);
+                continue;
+            }
 
             videoElement.onplay = () => {
-                if (
-                    !videoElement.paused &&
-                    this.videoElement !== videoElement
-                ) {
+                if (this.videoElement !== videoElement) {
                     this.videoElement = videoElement;
-                    window.dispatchEvent(
-                        new CustomEvent('newVideoDetected', {
-                            detail: videoElement
-                        })
-                    );
+                    this.sendVideoEvent(this.videoElement);
                 }
             };
         }
+    }
+
+    private videoIsAutoPlaying(videoElement: HTMLVideoElement) {
+        return videoElement.autoplay || !videoElement.paused;
+    }
+
+    private sendVideoEvent(videoElement: HTMLVideoElement) {
+        window.dispatchEvent(
+            new CustomEvent('newVideoDetected', {
+                detail: videoElement
+            })
+        );
     }
 }
