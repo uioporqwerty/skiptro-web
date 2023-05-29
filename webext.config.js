@@ -1,7 +1,6 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const LicenseWebpackPlugin = require('license-webpack-plugin').LicenseWebpackPlugin;
 const webpack = require('webpack');
 const path = require('path');
 
@@ -46,13 +45,6 @@ module.exports = {
                 template: path.resolve(__dirname, 'app', 'index.html'),
                 filename: 'index.html',
                 inject: true
-            }),
-            new LicenseWebpackPlugin({
-                perChunkOutput: false,
-                outputFilename: 'licenses.txt',
-                licenseTextOverrides: {
-                    '@growthbook/growthbook': 'This project uses the MIT license. The core GrowthBook app will always remain open and free, although we may add some commercial enterprise add-ons in the future.'
-                }
             })
         ];
         console.dir(config);

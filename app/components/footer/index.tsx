@@ -25,7 +25,7 @@ class FooterComponent extends Component {
         );
 
         const licenseLink =
-            'https://raw.githubusercontent.com/uioporqwerty/skiptro-web/main/licenses.txt';
+            'https://raw.githubusercontent.com/uioporqwerty/skiptro-web/main/licenses.html';
 
         return (
             <div className="footer">
