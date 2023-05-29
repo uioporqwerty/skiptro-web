@@ -4,6 +4,7 @@ import { FeatureService } from '../../services/feature/feature-service';
 
 export class SkipButton {
     private video?: HTMLVideoElement | null;
+    private introEndTime?: number;
     public button: HTMLButtonElement;
     public static inject = ['logger', 'analytics', 'features'] as const;
 
@@ -29,13 +30,29 @@ export class SkipButton {
             }
             this.analytics.track('Skip Clicked');
             this.log.debug(`Duration of the video is ${this.video.duration}`);
-            this.log.debug('Going to time 4s');
-            this.video.currentTime = 4;
+
+            if (!this.introEndTime) {
+                this.log.error(
+                    'Intro end time is not defined. Did you call setIntroEndTime?'
+                );
+                return;
+            }
+
+            this.video.currentTime = this.introEndTime;
         };
 
         window.addEventListener('resize', () => {
             this.setPosition();
         });
+    }
+
+    setIntroEndTime(time: number) {
+        if (!this.video) {
+            return;
+        }
+
+        this.log.debug(`Setting intro end to ${time}`);
+        this.introEndTime = time;
     }
 
     attachSkipButton(videoElement: HTMLVideoElement) {
