@@ -11,7 +11,7 @@ export class GenericVideoLocatorStrategy implements VideoLocatorStrategy {
         const videoElements = document.getElementsByTagName('video');
         for (let i = 0; i < videoElements.length; i++) {
             const videoElement = videoElements[i];
-            
+
             if (this.videoIsAutoPlaying(videoElement)) {
                 this.videoElement = videoElement;
                 this.sendVideoEvent(this.videoElement);
