@@ -1,17 +1,17 @@
 import { AnalyticsService } from '../../services/analytics/analytics-service';
 import { LoggingService } from '../../services/logging/logging-service';
-import { FeatureService } from '../../services/feature/feature-service';
+import { IFeatureService } from '../../services/feature/feature-service';
 
 export class SkipButton {
     private video?: HTMLVideoElement | null;
     private introEndTime?: number;
     public button: HTMLButtonElement;
-    public static inject = ['logger', 'analytics', 'features'] as const;
+    public static inject = ['logger', 'analytics', 'featureService'] as const;
 
     constructor(
         private log: LoggingService,
         private analytics: AnalyticsService,
-        private features: FeatureService
+        private featureService: IFeatureService
     ) {
         this.button = document.createElement('button');
         this.button.className = 'skip-button';

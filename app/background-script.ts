@@ -29,10 +29,9 @@ export class BackgroundScript {
     }
 
     private async checkForUpdate() {
-        if (this.versionService.requiresUpdate()) {
-            this.log.debug('Update required.');
+        if (await this.versionService.requiresUpdate()) {
             const minimumVersion: string =
-                this.versionService.getMinimumVersion();
+                await this.versionService.getMinimumVersion();
 
             await browser.runtime.sendMessage({
                 type: BrowserMessageType.updateRequired

@@ -3,7 +3,7 @@ import { Component } from 'react';
 import { InjectorContext } from '../../InjectorContext';
 import { Footer } from '../footer';
 import { Header } from '../header';
-import './index.scss';
+import './index.css';
 
 class PopUpComponent extends Component {
     render() {

@@ -1,6 +1,6 @@
 import { Feature } from './feature';
 
-export interface FeatureService {
-    isOn(feature: Feature): boolean;
-    getFeatureValue(feature: Feature, fallbackValue: any): any;
+export interface IFeatureService {
+    isOn(feature: Feature): Promise<boolean>;
+    getFeatureValue(feature: Feature, fallbackValue: any): Promise<any>;
 }

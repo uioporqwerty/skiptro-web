@@ -1,6 +1,6 @@
 import React from 'react';
 import { FC, HTMLAttributes } from 'react';
-import './index.scss';
+import './index.css';
 
 interface Props extends HTMLAttributes<HTMLLabelElement> {
     value: string;

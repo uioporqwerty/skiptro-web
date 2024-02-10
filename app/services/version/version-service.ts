@@ -1,30 +1,30 @@
 import { LoggingService } from '../logging/logging-service';
-import { FeatureService } from '../feature/feature-service';
+import { IFeatureService } from '../feature/feature-service';
 import { Feature } from '../feature/feature';
 import { Config } from '../../config';
 import { compare } from 'compare-versions';
 
 interface IVersionService {
     getExtensionVersion(): string;
-    getMinimumVersion(): string;
-    requiresUpdate(): boolean;
+    getMinimumVersion(): Promise<string>;
+    requiresUpdate(): Promise<boolean>;
 }
 
 class VersionService implements IVersionService {
-    static inject = ['logger', 'features'] as const;
+    static inject = ['logger', 'featureService'] as const;
 
     constructor(
         private log: LoggingService,
-        private features: FeatureService
+        private features: IFeatureService
     ) {}
 
     getExtensionVersion(): string {
         return Config.extensionVersion;
     }
 
-    public requiresUpdate(): boolean {
+    async requiresUpdate(): Promise<boolean> {
         const currentVersion = Config.extensionVersion;
-        const minimumVersion = this.getMinimumVersion();
+        const minimumVersion = await this.getMinimumVersion();
 
         const result = compare(currentVersion, minimumVersion, '<');
         this.log.debug(
@@ -34,8 +34,8 @@ class VersionService implements IVersionService {
         return result;
     }
 
-    public getMinimumVersion(): string {
-        return this.features.getFeatureValue(
+    async getMinimumVersion(): Promise<string> {
+        return await this.features.getFeatureValue(
             Feature.webExtensionMinimumVersion,
             '1.0.0'
         );

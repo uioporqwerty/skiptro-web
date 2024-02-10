@@ -2,7 +2,7 @@ import React from 'react';
 import { Component } from 'react';
 import { InjectorContext } from '../../InjectorContext';
 import { Ii18nService } from '../../services/i18n/i18n-service';
-import './index.scss';
+import './index.css';
 
 interface Props {
     title?: string;

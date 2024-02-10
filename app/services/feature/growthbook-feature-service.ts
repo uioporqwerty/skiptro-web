@@ -1,38 +1,43 @@
+import { GrowthBook } from '@growthbook/growthbook';
 import { LoggingService } from '../logging/logging-service';
-import { FeatureResult, GrowthBook } from '@growthbook/growthbook';
 import { Config } from '../../config';
 import { Feature } from './feature';
+import { IFeatureService } from './feature-service';
 
-export class GrowthBookFeatureService {
+export class GrowthBookFeatureService implements IFeatureService {
     static inject = ['logger'] as const;
     private growthbook: GrowthBook;
+    private featuresInitialized = false;
 
     constructor(private log: LoggingService) {
         this.growthbook = new GrowthBook({
             apiHost: 'https://cdn.growthbook.io',
-            clientKey: Config.growthBookClientKey,
+            clientKey: Config.environment === 'development' ? Config.
+            devGrowthBookClientKey : Config.growthBookClientKey,
+            subscribeToChanges: true,
             enableDevMode: Config.environment === 'development',
-            onFeatureUsage: (key: string, result: FeatureResult<any>) => {
+            onFeatureUsage: (key, result) => {
                 this.log.debug(`Feature ${key} has value ${result.value}`);
             }
         });
-
-        this.growthbook
-            .loadFeatures({
-                autoRefresh: true
-            })
-            .catch((err) => {
-                this.log.error(
-                    `Error loading features from GrowthBook: ${err}`
-                );
-            });
     }
 
-    isOn(feature: Feature): boolean {
-        return this.growthbook.isOn(feature);
+    async isOn(feature: Feature): Promise<boolean> {
+        await this.loadFeatures();
+        return Promise.resolve(this.growthbook.isOn(feature))
     }
 
-    getFeatureValue(feature: Feature, fallbackValue: any): any {
-        return this.growthbook.getFeatureValue(feature, fallbackValue);
+    async getFeatureValue(feature: Feature, fallbackValue: any): Promise<any> {
+        this.loadFeatures();
+        return Promise.resolve(this.growthbook.getFeatureValue(feature, fallbackValue));
+    }
+
+    private async loadFeatures() {
+        if (this.featuresInitialized) {
+            return;
+        }
+
+        this.featuresInitialized = true;
+        await this.growthbook.loadFeatures();
     }
 }

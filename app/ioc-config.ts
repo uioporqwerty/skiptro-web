@@ -8,7 +8,7 @@ import { SkipButton } from './components/skip-button';
 
 const rootInjector = createInjector()
     .provideClass('logger', ConsoleLoggingService)
-    .provideClass('features', GrowthBookFeatureService)
+    .provideClass('featureService', GrowthBookFeatureService)
     .provideClass('analytics', MixpanelService)
     .provideClass('i18n', i18nService)
     .provideClass('versionService', VersionService)

@@ -24,8 +24,8 @@ module.exports = {
                     exclude: /node_modules/
                 },
                 {
-                    test: /\.s[ac]ss$/i,
-                    use: ['style-loader', 'css-loader', 'sass-loader']
+                    test: /\.css$/i,
+                    use: ['style-loader', 'css-loader']
                 }
             ]
         };
@@ -38,7 +38,10 @@ module.exports = {
                     { from: './_locales', to: './_locales' },
                     { from: './images', to: './images' },
                     { from: './fonts', to: './fonts' },
-                    { from: '../node_modules/webextension-polyfill/dist/browser-polyfill.js', to: './' }
+                    {
+                        from: '../node_modules/webextension-polyfill/dist/browser-polyfill.js',
+                        to: './'
+                    }
                 ]
             }),
             new HtmlWebpackPlugin({
