@@ -10,11 +10,13 @@ import { Link } from '../link';
 import './index.css';
 import { LoggingService } from '../../services/logging/logging-service';
 
-interface State {
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface FooterProps {}
+interface FooterState {
     isWebExtensionLicensesLinkEnabled: boolean;
 }
 
-class FooterComponent extends Component<{}, State>{
+class FooterComponent extends Component<FooterProps, FooterState> {
     private versionService: IVersionService;
     private features: IFeatureService;
     private i18n: Ii18nService;
@@ -22,7 +24,7 @@ class FooterComponent extends Component<{}, State>{
 
     state = {
         isWebExtensionLicensesLinkEnabled: false
-    }
+    };
 
     constructor(props: any, context: any) {
         super(props, context);
@@ -37,8 +39,10 @@ class FooterComponent extends Component<{}, State>{
             Feature.webExtensionLicensesLink
         );
 
-        this.log.debug(`isWebExtensionLicensesLinkEnabled: ${isWebExtensionLicensesLinkEnabled}`)
-        this.setState({ isWebExtensionLicensesLinkEnabled }) 
+        this.log.debug(
+            `isWebExtensionLicensesLinkEnabled: ${isWebExtensionLicensesLinkEnabled}`
+        );
+        this.setState({ isWebExtensionLicensesLinkEnabled });
     }
 
     render() {
@@ -51,16 +55,17 @@ class FooterComponent extends Component<{}, State>{
         const licenseLink =
             'https://raw.githubusercontent.com/uioporqwerty/skiptro-web/main/licenses.html';
 
-        
         return (
             <div className="footer">
                 <Label className="footer-version" value={currentVersionLabel} />
-                
+
                 {this.state.isWebExtensionLicensesLinkEnabled && (
                     <Link
                         className="footer-licenses-link"
                         href={licenseLink}
-                        text={this.i18n.getTranslation('popup_licensesLinkText')}
+                        text={this.i18n.getTranslation(
+                            'popup_licensesLinkText'
+                        )}
                         openInNewTab={true}
                     />
                 )}

@@ -12,8 +12,10 @@ export class GrowthBookFeatureService implements IFeatureService {
     constructor(private log: LoggingService) {
         this.growthbook = new GrowthBook({
             apiHost: 'https://cdn.growthbook.io',
-            clientKey: Config.environment === 'development' ? Config.
-            devGrowthBookClientKey : Config.growthBookClientKey,
+            clientKey:
+                Config.environment === 'development'
+                    ? Config.devGrowthBookClientKey
+                    : Config.growthBookClientKey,
             subscribeToChanges: true,
             enableDevMode: Config.environment === 'development',
             onFeatureUsage: (key, result) => {
@@ -24,12 +26,14 @@ export class GrowthBookFeatureService implements IFeatureService {
 
     async isOn(feature: Feature): Promise<boolean> {
         await this.loadFeatures();
-        return Promise.resolve(this.growthbook.isOn(feature))
+        return Promise.resolve(this.growthbook.isOn(feature));
     }
 
     async getFeatureValue(feature: Feature, fallbackValue: any): Promise<any> {
         this.loadFeatures();
-        return Promise.resolve(this.growthbook.getFeatureValue(feature, fallbackValue));
+        return Promise.resolve(
+            this.growthbook.getFeatureValue(feature, fallbackValue)
+        );
     }
 
     private async loadFeatures() {
