@@ -1,34 +1,42 @@
 {
-    "name": "skiptro-web-ext",
+    "name": "skiptro-web",
     "version": "1.0.0",
     "description": "Easily skip tv show intros",
     "main": "content_script.js",
+    "author": "Nitish Sachar",
+    "license": "MIT",
+    "homepage": "https://github.com/uioporqwerty/skiptro-web#readme",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/uioporqwerty/skiptro-web.git"
+    },
+    "bugs": {
+        "url": "https://github.com/uioporqwerty/skiptro-web/issues"
+    },
     "scripts": {
-        "check:formatting": "prettier --check app",
-        "check:formatting:write": "prettier --write app",
-        "check:linting": "npx eslint app",
-        "test:unit": "jest --coverage",
         "build:firefox": "webextension-toolbox build firefox --config ./webext.config.js",
         "build:edge": "webextension-toolbox build edge --config ./webext.config.js",
         "build:chrome": "webextension-toolbox build chrome --config ./webext.config.js",
         "build:opera": "webextension-toolbox build opera --config ./webext.config.js",
+        "check:formatting": "prettier --check app",
+        "check:formatting:write": "prettier --write app",
+        "check:linting": "npx eslint app",
         "generateLicenses": "license-report --only=dev,prod --output=html --config license-report-config.json > licenses.html",
         "precommit": "npm run check:formatting && npm run check:linting",
         "start:firefox": "webextension-toolbox dev firefox --config ./webext.config.js & npm run generateLicenses",
         "start:edge": "webextension-toolbox dev edge --config ./webext.config.js & npm run generateLicenses",
         "start:chrome": "webextension-toolbox dev chrome --config ./webext.config.js & npm run generateLicenses",
-        "start:opera": "webextension-toolbox dev opera --config ./webext.config.js & npm run generateLicenses"
+        "start:opera": "webextension-toolbox dev opera --config ./webext.config.js & npm run generateLicenses",
+        "test:unit": "jest --coverage"
     },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/uioporqwerty/skiptro-web-ext.git"
+    "dependencies": {
+        "@growthbook/growthbook": "^0.33.0",
+        "compare-versions": "^6.0.0-rc.1",
+        "mixpanel-browser": "^2.49.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "typed-inject": "^3.0.1"
     },
-    "author": "Nitish Sachar",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/uioporqwerty/skiptro-web-ext/issues"
-    },
-    "homepage": "https://github.com/uioporqwerty/skiptro-web-ext#readme",
     "devDependencies": {
         "@types/jest": "^29.4.0",
         "@types/mixpanel-browser": "^2.38.1",
@@ -63,14 +71,6 @@
     },
     "lint-staged": {
         "*": "prettier --write --ignore-unknown"
-    },
-    "dependencies": {
-        "@growthbook/growthbook": "^0.33.0",
-        "compare-versions": "^6.0.0-rc.1",
-        "mixpanel-browser": "^2.49.0",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0",
-        "typed-inject": "^3.0.1"
     },
     "husky": {
         "hooks": {
