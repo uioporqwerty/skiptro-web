@@ -6,19 +6,19 @@ export class ConsoleLoggingService implements LoggingService {
     constructor(private readonly currentDate: Date = new Date()) {}
 
     debug(message: string): void {
-        console.debug(`${this.tag} ${message} ${this.addTimestamp()}`);
+        console.debug(`[${this.addTimestamp()}] [DEBUG] ${this.tag} ${message}}`);
     }
 
     info(message: string): void {
-        console.info(`${this.tag} ${message} ${this.addTimestamp()}`);
+        console.info(`${this.addTimestamp()}] [INFO] ${this.tag} ${message}`);
     }
 
     warn(message: string): void {
-        console.warn(`${this.tag} ${message} ${this.addTimestamp()}`);
+        console.warn(`${this.addTimestamp()}] [WARN] ${this.tag} ${message}`);
     }
 
     error(message: string): void {
-        console.error(`${this.tag} ${message} ${this.addTimestamp()}`);
+        console.error(`${this.addTimestamp()}] [ERROR] ${this.tag} ${message}`);
     }
 
     private addTimestamp(): string {
