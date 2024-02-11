@@ -65,6 +65,12 @@ jobs:
             - run: npm run build:firefox
               name: 'Build Firefox'
 
+            - name: Package Firefox Extension
+              run: |
+                  mkdir -p ./packages
+                  zip -r ./packages/skiptro-web.v${{env.RELEASE_VERSION}}.firefox.xpi ./dist/firefox/*
+                  ls -lh ./packages/
+
             - uses: actions/upload-artifact@v4
               name: 'Upload Firefox Extension to Github Actions'
               with:
