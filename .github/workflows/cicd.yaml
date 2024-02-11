@@ -75,7 +75,7 @@ jobs:
               name: 'Upload Firefox Extension to Github Actions'
               with:
                   name: Firefox Extension
-                  path: packages/skiptro-web-ext.v${{ env.RELEASE_VERSION }}.firefox.xpi.zip
+                  path: packages/skiptro-web.v${{ env.RELEASE_VERSION }}.firefox.xpi.zip
 
             # - run: npm run build:edge
             #   name: "Build Edge"
