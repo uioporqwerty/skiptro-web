@@ -10,10 +10,10 @@ jobs:
         name: 'Build, Lint, Test, and Deploy'
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v3
+            - uses: actions/checkout@v4
               name: 'Checkout'
 
-            - uses: actions/setup-node@v3
+            - uses: actions/setup-node@v4
               name: 'Setup Node'
               with:
                   node-version: '21'
@@ -60,12 +60,12 @@ jobs:
               name: 'Run unit tests'
 
             - name: Upload coverage reports to Codecov
-              uses: codecov/codecov-action@v3
+              uses: codecov/codecov-action@v4
 
             - run: npm run build:firefox
               name: 'Build Firefox'
 
-            - uses: actions/upload-artifact@v3
+            - uses: actions/upload-artifact@v4
               name: 'Upload Firefox Extension to Github Actions'
               with:
                   name: Firefox Extension
