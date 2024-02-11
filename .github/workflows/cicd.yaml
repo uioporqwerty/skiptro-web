@@ -65,24 +65,34 @@ jobs:
             - run: npm run build:firefox
               name: 'Build Firefox'
 
-            - name: Package Firefox Extension
+            - run: npm run build:chrome
+              name: 'Build Chrome'
+
+            - name: Package Extensions
               run: |
                   mkdir -p ./packages
-                  cd ./dist/firefox
+                  pushd ./dist/firefox
                   zip -r ../../packages/skiptro-web.v${{env.RELEASE_VERSION}}.firefox.xpi.zip ./*
+                  popd
+
+                  pushd ./dist/chrome
+                  zip -r ../../packages/skiptro-web.v${{env.RELEASE_VERSION}}.chrome.zip ./*
                   ls -lh ../../packages/
 
             - uses: actions/upload-artifact@v4
               name: 'Upload Firefox Extension to Github Actions'
               with:
-                  name: Firefox Extension
+                  name: skiptro-web.v${{ env.RELEASE_VERSION }}.firefox.xpi.zip
                   path: packages/skiptro-web.v${{ env.RELEASE_VERSION }}.firefox.xpi.zip
+
+            - uses: actions/upload-artifact@v4
+              name: 'Upload Chrome Extension to Github Actions'
+              with:
+                  name: skiptro-web.v${{ env.RELEASE_VERSION }}.chrome.zip
+                  path: packages/skiptro-web.v${{ env.RELEASE_VERSION }}.chrome.zip
 
             # - run: npm run build:edge
             #   name: "Build Edge"
-
-            # - run: npm run build:chrome
-            #   name: "Build Chrome"
 
             # - run: npm run build:opera
             #   name: "Build Opera"
