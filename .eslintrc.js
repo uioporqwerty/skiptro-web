@@ -17,7 +17,9 @@ module.exports = {
     },
     rules: {
         '@typescript-eslint/no-explicit-any': 'off',
-        '@typescript-eslint/restrict-template-expressions': 'off'
+        '@typescript-eslint/restrict-template-expressions': 'off',
+        '@typescript-eslint/ban-types': 'off',
+        'react/react-in-jsx-scope': 'off'
     },
     root: true
 };
