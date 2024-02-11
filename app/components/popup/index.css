@@ -1,8 +1,20 @@
 .popup-container {
-    width: 400px;
-    height: 400px;
+    width: 300px;
+    height: 300px;
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
+}
+
+.popup-header {
+    text-align: center;
+    color: var(--purple-color);
+}
+
+.popup-tagline .header-title {
+    text-align: center;
+    font-size: 11px;
+    margin-top: 0px;
 }
 
 .popup-content {

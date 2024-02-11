@@ -27,6 +27,9 @@
     "popup_title": {
         "message": "Skiptro"
     },
+    "popup_tagline": {
+        "message": "Skip to the parts you care about."
+    },
     "skip_button_text": {
         "message": "Skip Intro"
     },

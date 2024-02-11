@@ -29,7 +29,13 @@
             "css": ["content-script.css"]
         }
     ],
-    "web_accessible_resources": ["images/skip-forward.svg"],
+    "web_accessible_resources": [
+        "images/skip-forward.svg",
+        "fonts/Roboto-Light.ttf",
+        "fonts/Roboto-Regular.ttf",
+        "fonts/Roboto-Medium.ttf",
+        "fonts/Roboto-Bold.ttf"
+    ],
     "permissions": ["http://*/*", "https://*/*", "notifications", "storage"],
     "default_locale": "en"
 }

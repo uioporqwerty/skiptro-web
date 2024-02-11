@@ -1,4 +1,69 @@
 @font-face {
     font-family: 'Roboto';
+    src: url('/fonts/Roboto/Roboto-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Roboto';
     src: url('/fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('/fonts/Roboto/Roboto-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('/fonts/Roboto/Roboto-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+:root {
+    --background-color: #282a36; /* Background of pages or elements */
+    --current-line-color: #44475a; /* Background of the selected or active line */
+    --foreground-color: #f8f8f2; /* Primary content text color */
+    --comment-color: #6272a4; /* Secondary text or less important content */
+    --cyan-color: #8be9fd; /* Interactive elements or highlights */
+    --green-color: #50fa7b; /* Success messages, buttons, or icons */
+    --orange-color: #ffb86c; /* Warnings or buttons that require attention */
+    --pink-color: #ff79c6; /* Less common actions, or accent decorations */
+    --purple-color: #bd93f9; /* Elements that need to stand out */
+    --red-color: #ff5555; /* Error messages, alerts, or critical actions */
+    --yellow-color: #f1fa8c; /* Cautionary information or highlights */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--foreground-color);
+}
+
+h1 {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+h2 {
+    font-weight: 500;
+}
+
+p {
+    font-weight: 400;
+}
+
+a {
+    color: var(--cyan-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--purple-color);
 }
