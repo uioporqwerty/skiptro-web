@@ -12,15 +12,17 @@ export class ConsoleLoggingService implements LoggingService {
     }
 
     info(message: string): void {
-        console.info(`${this.addTimestamp()}] [INFO] ${this.tag} ${message}`);
+        console.info(`[${this.addTimestamp()}] [INFO] ${this.tag} ${message}`);
     }
 
     warn(message: string): void {
-        console.warn(`${this.addTimestamp()}] [WARN] ${this.tag} ${message}`);
+        console.warn(`[${this.addTimestamp()}] [WARN] ${this.tag} ${message}`);
     }
 
     error(message: string): void {
-        console.error(`${this.addTimestamp()}] [ERROR] ${this.tag} ${message}`);
+        console.error(
+            `[${this.addTimestamp()}] [ERROR] ${this.tag} ${message}`
+        );
     }
 
     private addTimestamp(): string {

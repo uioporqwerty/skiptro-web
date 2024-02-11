@@ -11,7 +11,7 @@ describe('Unit | Services | Logging | ConsoleLoggingService', () => {
 
         expect(console.debug).toHaveBeenCalledTimes(1);
         expect(console.debug).toHaveBeenCalledWith(
-            `${currentDate.toISOString()} [DEBUG] [Skiptro] ${message}`
+            `[${currentDate.toISOString()}] [DEBUG] [Skiptro] ${message}`
         );
     });
 
@@ -25,7 +25,7 @@ describe('Unit | Services | Logging | ConsoleLoggingService', () => {
 
         expect(console.warn).toHaveBeenCalledTimes(1);
         expect(console.warn).toHaveBeenCalledWith(
-            `${currentDate.toISOString()} [WARN] [Skiptro] ${message}`
+            `[${currentDate.toISOString()}] [WARN] [Skiptro] ${message}`
         );
     });
 
@@ -39,7 +39,7 @@ describe('Unit | Services | Logging | ConsoleLoggingService', () => {
 
         expect(console.info).toHaveBeenCalledTimes(1);
         expect(console.info).toHaveBeenCalledWith(
-            `${currentDate.toISOString()} [INFO] [Skiptro] ${message}`
+            `[${currentDate.toISOString()}] [INFO] [Skiptro] ${message}`
         );
     });
     test('it logs message for error', () => {
@@ -52,7 +52,7 @@ describe('Unit | Services | Logging | ConsoleLoggingService', () => {
 
         expect(console.error).toHaveBeenCalledTimes(1);
         expect(console.error).toHaveBeenCalledWith(
-            `${currentDate.toISOString()} [ERROR] [Skiptro] ${message}`
+            `[${currentDate.toISOString()}] [ERROR] [Skiptro] ${message}`
         );
     });
 });
