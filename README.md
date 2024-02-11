@@ -1,6 +1,6 @@
 # Skiptro
 
-[![CI/CD](https://github.com/uioporqwerty/skiptro-web/actions/workflows/skiptro-web.yaml/badge.svg)](https://github.com/uioporqwerty/skiptro-web/actions/workflows/skiptro-web.yaml)
+[![Skiptro Web Build](https://github.com/uioporqwerty/skiptro-web/actions/workflows/skiptro-web.yaml/badge.svg)](https://github.com/uioporqwerty/skiptro-web/actions/workflows/skiptro-web.yaml)
 [![codecov](https://codecov.io/gh/uioporqwerty/skiptro-web/branch/main/graph/badge.svg?token=oTxaR7SRh8)](https://codecov.io/gh/uioporqwerty/skiptro-web)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=uioporqwerty_skiptro-web&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=uioporqwerty_skiptro-web)
 
