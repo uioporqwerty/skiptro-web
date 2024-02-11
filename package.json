@@ -4,7 +4,6 @@
     "description": "Easily skip tv show intros",
     "main": "content_script.js",
     "author": "Nitish Sachar",
-    "license": "MIT",
     "homepage": "https://github.com/uioporqwerty/skiptro-web#readme",
     "repository": {
         "type": "git",

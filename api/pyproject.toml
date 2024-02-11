@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "skiptro-api"
+version = "1.0.0"
+description = "Server side for Skiptro app"
+authors = ["Nitish Sachar"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.109.2"
+invoke = "^2.2.0"
+websockets = "^12.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
