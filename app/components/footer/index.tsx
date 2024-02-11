@@ -39,9 +39,6 @@ class FooterComponent extends Component<FooterProps, FooterState> {
             Feature.webExtensionLicensesLink
         );
 
-        this.log.debug(
-            `isWebExtensionLicensesLinkEnabled: ${isWebExtensionLicensesLinkEnabled}`
-        );
         this.setState({ isWebExtensionLicensesLinkEnabled });
     }
 

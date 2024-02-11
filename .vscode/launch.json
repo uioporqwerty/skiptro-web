@@ -2,12 +2,13 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Start Dev",
+            "name": "FastAPI: Uvicorn",
             "type": "debugpy",
             "request": "launch",
             "module": "uvicorn",
-            "args": ["api.main:app", "--reload"],
-            "console": "integratedTerminal"
+            "args": ["src.main:app"],
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/api"
         }
     ]
 }

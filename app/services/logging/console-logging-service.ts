@@ -6,7 +6,9 @@ export class ConsoleLoggingService implements LoggingService {
     constructor(private readonly currentDate: Date = new Date()) {}
 
     debug(message: string): void {
-        console.debug(`[${this.addTimestamp()}] [DEBUG] ${this.tag} ${message}}`);
+        console.debug(
+            `[${this.addTimestamp()}] [DEBUG] ${this.tag} ${message}`
+        );
     }
 
     info(message: string): void {

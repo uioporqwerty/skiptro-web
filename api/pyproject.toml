@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "skiptro-api"
+name = "src"
 version = "1.0.0"
 description = "Server side for Skiptro app"
 authors = ["Nitish Sachar"]
@@ -10,7 +10,7 @@ python = "^3.12"
 fastapi = "^0.109.2"
 invoke = "^2.2.0"
 websockets = "^12.0"
-
+uvicorn = {extras = ["standard"], version = "^0.27.1"}
 
 [build-system]
 requires = ["poetry-core"]

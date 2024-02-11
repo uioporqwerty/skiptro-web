@@ -22,10 +22,10 @@
         "check:linting": "npx eslint app",
         "generateLicenses": "license-report --only=dev,prod --output=html --config license-report-config.json > licenses.html",
         "precommit": "npm run check:formatting && npm run check:linting",
-        "start:firefox": "webextension-toolbox dev firefox --config ./webext.config.js & npm run generateLicenses",
-        "start:edge": "webextension-toolbox dev edge --config ./webext.config.js & npm run generateLicenses",
-        "start:chrome": "webextension-toolbox dev chrome --config ./webext.config.js & npm run generateLicenses",
-        "start:opera": "webextension-toolbox dev opera --config ./webext.config.js & npm run generateLicenses",
+        "start:firefox": "NODE_OPTIONS=--openssl-legacy-provider webextension-toolbox dev firefox --config ./webext.config.js & npm run generateLicenses",
+        "start:edge": "NODE_OPTIONS=--openssl-legacy-provider webextension-toolbox dev edge --config ./webext.config.js & npm run generateLicenses",
+        "start:chrome": "NODE_OPTIONS=--openssl-legacy-provider webextension-toolbox dev chrome --config ./webext.config.js & npm run generateLicenses",
+        "start:opera": "NODE_OPTIONS=--openssl-legacy-provider webextension-toolbox dev opera --config ./webext.config.js & npm run generateLicenses",
         "test:unit": "jest --coverage"
     },
     "dependencies": {
