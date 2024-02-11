@@ -68,7 +68,7 @@ jobs:
             - name: Package Firefox Extension
               run: |
                   mkdir -p ./packages
-                  zip -r ./packages/skiptro-web.v${{env.RELEASE_VERSION}}.firefox.xpi ./dist/firefox/*
+                  zip -r ./packages/skiptro-web.v${{env.RELEASE_VERSION}}.firefox.xpi.zip ./dist/firefox/*
                   ls -lh ./packages/
 
             - uses: actions/upload-artifact@v4
