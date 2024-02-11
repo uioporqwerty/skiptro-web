@@ -9,8 +9,10 @@ describe('Unit | Services | Logging | ConsoleLoggingService', () => {
 
         logger.debug(message);
 
-        expect(console.debug).toBeCalledTimes(1);
-        expect(console.debug).toBeCalledWith(`[Skiptro] ${message} ${currentDate.toISOString()}`);
+        expect(console.debug).toHaveBeenCalledTimes(1);
+        expect(console.debug).toHaveBeenCalledWith(
+            `${currentDate.toISOString()} [DEBUG] [Skiptro] ${message}`
+        );
     });
 
     test('it logs message for warn', () => {
@@ -21,8 +23,10 @@ describe('Unit | Services | Logging | ConsoleLoggingService', () => {
 
         logger.warn(message);
 
-        expect(console.warn).toBeCalledTimes(1);
-        expect(console.warn).toBeCalledWith(`[Skiptro] ${message} ${currentDate.toISOString()}`);
+        expect(console.warn).toHaveBeenCalledTimes(1);
+        expect(console.warn).toHaveBeenCalledWith(
+            `${currentDate.toISOString()} [WARN] [Skiptro] ${message}`
+        );
     });
 
     test('it logs message for info', () => {
@@ -33,8 +37,10 @@ describe('Unit | Services | Logging | ConsoleLoggingService', () => {
 
         logger.info(message);
 
-        expect(console.info).toBeCalledTimes(1);
-        expect(console.info).toBeCalledWith(`[Skiptro] ${message} ${currentDate.toISOString()}`);
+        expect(console.info).toHaveBeenCalledTimes(1);
+        expect(console.info).toHaveBeenCalledWith(
+            `${currentDate.toISOString()} [INFO] [Skiptro] ${message}`
+        );
     });
     test('it logs message for error', () => {
         const message = 'testing';
@@ -44,7 +50,9 @@ describe('Unit | Services | Logging | ConsoleLoggingService', () => {
 
         logger.error(message);
 
-        expect(console.error).toBeCalledTimes(1);
-        expect(console.error).toBeCalledWith(`[Skiptro] ${message} ${currentDate.toISOString()}`);
+        expect(console.error).toHaveBeenCalledTimes(1);
+        expect(console.error).toHaveBeenCalledWith(
+            `${currentDate.toISOString()} [ERROR] [Skiptro] ${message}`
+        );
     });
 });
