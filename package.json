@@ -13,10 +13,10 @@
         "url": "https://github.com/uioporqwerty/skiptro-web/issues"
     },
     "scripts": {
-        "build:firefox": "webextension-toolbox build firefox --config ./webext.config.js",
-        "build:edge": "webextension-toolbox build edge --config ./webext.config.js",
-        "build:chrome": "webextension-toolbox build chrome --config ./webext.config.js",
-        "build:opera": "webextension-toolbox build opera --config ./webext.config.js",
+        "build:firefox": "NODE_OPTIONS=--openssl-legacy-provider webextension-toolbox build firefox --config ./webext.config.js",
+        "build:edge": "NODE_OPTIONS=--openssl-legacy-provider webextension-toolbox build edge --config ./webext.config.js",
+        "build:chrome": "NODE_OPTIONS=--openssl-legacy-provider webextension-toolbox build chrome --config ./webext.config.js",
+        "build:opera": "NODE_OPTIONS=--openssl-legacy-provider webextension-toolbox build opera --config ./webext.config.js",
         "check:formatting": "prettier --check app",
         "check:formatting:write": "prettier --write app",
         "check:linting": "npx eslint app",
